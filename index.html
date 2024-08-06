@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Product preview card component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700");
+      @import url("https://fonts.googleapis.com/css?family=Fraunces:700");
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --c-primary-cream: hsl(30, 38%, 92%);
+        --c-primary-dark-cyan: hsl(158, 36%, 37%);
+        --c-primary-very-dark-cyan: hsl(157, 43%, 18%);
+
+        --c-neutral-white: hsl(0, 0%, 100%);
+        --c-neutral-dark-grayish-blue: hsl(228, 12%, 48%);
+        --c-neutral-very-dark-blue: hsl(212, 21%, 14%);
+        --font-medium: 500;
+        --font-bold: 700;
+
+        /* 1rem = 10px */
+        font-size: 62.5%;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        font-size: 16px; /* px fallback */
+        font-size: 1.6rem; /* default font-size for document */
+        line-height: 1.5; /* a nice line-height */
+        margin: 0;
+
+        background-color: var(--c-primary-cream);
+      }
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      .description {
+        width: 100%;
+        border: 1px;
+        border-radius: 1rem;
+
+        background-color: var(--c-neutral-white);
+      }
+
+      .description__content {
+        margin-top: 2.4rem;
+        margin-left: 2.4rem;
+        margin-right: 2.4rem;
+
+        padding-bottom: 2.4rem;
+      }
+
+      .description__img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .description__title {
+        color: var(--c-neutral-dark-grayish-blue);
+        letter-spacing: 0.5rem;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        margin-bottom: 1.2rem;
+        font-weight: var(--font-medium);
+      }
+
+      .description__subtitle {
+        line-height: 3.2rem;
+        font-size: 3.2rem;
+        text-transform: capitalize;
+        margin-bottom: 1.6rem;
+        text-wrap: wrap;
+
+        font-family: "Fraunces", sans-serif;
+        font-weight: var(--font-bold);
+      }
+      .description__text {
+        color: var(--c-neutral-dark-grayish-blue);
+        line-height: 2.3rem;
+        font-size: 1.4rem;
+        margin-bottom: 2.4rem;
+        max-width: 48rem;
+        font-weight: var(--font-medium);
+      }
+
+      .description__prices {
+        display: flex;
+        margin-bottom: 2rem;
+      }
+
+      .description__price--discount {
+        font-size: 3.2rem;
+        line-height: 3.2rem;
+        font-weight: var(--font-bold);
+        color: var(--c-primary-dark-cyan);
+        display: inline-block;
+        margin-right: 1.9rem;
+        font-family: "Fraunces", sans-serif;
+      }
+
+      .description__price--original {
+        align-self: center;
+        font-size: 1.4rem;
+        text-decoration: line-through;
+        font-weight: var(--font-medium);
+        color: var(--c-neutral-dark-grayish-blue);
+      }
+
+      .description__cart {
+        font-size: 1.4rem;
+        color: var(--c-neutral-white);
+        background-color: var(--c-primary-dark-cyan);
+        display: flex;
+        justify-content: center;
+        border-radius: 1rem;
+        font-weight: var(--font-bold);
+        align-items: center;
+        height: 4.8rem;
+        gap: 1.2rem;
+        cursor: pointer;
+      }
+
+      .description__cart:active {
+        background-color: var(--c-primary-very-dark-cyan);
+      }
+
+      @media (min-width: 300px) {
+        body {
+          font-size: 1.4rem;
+        }
+
+        .description__img {
+          border-radius: 1rem 1rem 0 0;
+        }
+      }
+
+      @media (min-width: 600px) {
+        body {
+          font-size: 1.6rem;
+          display: flex;
+          justify-content: center;
+        }
+        .description {
+          max-width: 60rem;
+          display: flex;
+          padding-bottom: 0;
+        }
+
+        .description__img {
+          overflow: auto;
+          border-radius: 1rem 0 0 1rem;
+        }
+
+        .description__content {
+          margin-top: 3.2rem;
+          margin-left: 3.2rem;
+          margin-right: 3.2rem;
+
+          padding-bottom: 3.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="description">
+      <picture>
+        <source
+          media="(min-width: 600px)"
+          srcset="/images/image-product-desktop.jpg"
+        />
+        <source
+          media="(max-width: 599px)"
+          srcset="/images/image-product-mobile.jpg"
+        />
+        <img
+          class="description__img"
+          src="/images/image-product-mobile.jpg"
+          alt=""
+        />
+      </picture>
+
+      <div class="description__content">
+        <div class="description__title">Perfume</div>
+        <div class="description__subtitle description__subtitle--font-medium">
+          Gabrielle Essence Eau De Parfum
+        </div>
+        <div class="description__text">
+          A floral, solar and voluptuous interpretation composed by Olivier
+          Polge, Perfumer-Creator for the House of CHANEL.
+        </div>
+        <div class="description__prices">
+          <span class="description__price description__price--discount"
+            >$149.99</span
+          >
+          <span class="description__price description__price--original"
+            >$169.99</span
+          >
+        </div>
+
+        <div class="description__cart">
+          <span class="description__icon">
+            <svg width="15" height="16" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M14.383 10.388a2.397 2.397 0 0 0-1.518-2.222l1.494-5.593a.8.8 0 0 0-.144-.695.8.8 0 0 0-.631-.28H2.637L2.373.591A.8.8 0 0 0 1.598 0H0v1.598h.983l1.982 7.4a.8.8 0 0 0 .799.59h8.222a.8.8 0 0 1 0 1.599H1.598a.8.8 0 1 0 0 1.598h.943a2.397 2.397 0 1 0 4.507 0h1.885a2.397 2.397 0 1 0 4.331-.376 2.397 2.397 0 0 0 1.12-2.021ZM11.26 7.99H4.395L3.068 3.196h9.477L11.26 7.991Zm-6.465 6.392a.8.8 0 1 1 0-1.598.8.8 0 0 1 0 1.598Zm6.393 0a.8.8 0 1 1 0-1.598.8.8 0 0 1 0 1.598Z"
+                fill="#FFF"
+              />
+            </svg>
+          </span>
+          <span class="description__add-to-cart">Add to Cart</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
